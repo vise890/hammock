@@ -4,6 +4,6 @@
 development:
   sessions:
     default:
-      database: mongoid
+      database: hammock_dev
       hosts:
         - localhost:27017
