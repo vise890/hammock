@@ -1,6 +1,9 @@
 # Hammock
 Leisurely build Restful APIs with ruby, sinatra and MongoDB.
 
+# Installation
+clone, shotgun.
+
 # Useageness
 Put a Mongoid document in the `resources` folder. That's it. You now have all the basic CRUD actions at `/resource_name`.
 
