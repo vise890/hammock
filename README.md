@@ -23,6 +23,7 @@ end
 - `DELETE /coconuts/524a87a7e0f3fc1d2d000001` to disintegrate that coconut
 
 Bonus route:
+
 - `POST /coconuts/search, { juicy: true }` to find all the juicy coconuts
 
 # Not Implemented yet
