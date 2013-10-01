@@ -8,8 +8,8 @@ Bundler.require(:default)
 mongoid_yml = File.expand_path('mongoid.yml', File.dirname(__FILE__))
 Mongoid.load!(mongoid_yml)
 
-# Require all the models
-Dir['./api/models/*.rb'].each { |model| require model }
+# Require all the resources
+Dir['./resources/*.rb'].each { |model| require model }
 
 # Require hammock
 require_relative '../lib/hammock'
