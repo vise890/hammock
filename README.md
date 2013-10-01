@@ -17,7 +17,7 @@ class Coconut
 end
 ```
 
-... you could then:
+... you get all these routes for free:
 
 - `GET /coconuts` to get all the coconuts
 - `GET /coconuts/524a87a7e0f3fc1d2d000001` to get that specific coconat
