@@ -1,0 +1,9 @@
+# Mongoid configuration file
+# More info at:
+# http://mongoid.org/en/mongoid/docs/installation.html#configuration
+development:
+  sessions:
+    default:
+      database: mongoid
+      hosts:
+        - localhost:27017
