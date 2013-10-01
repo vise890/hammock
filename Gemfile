@@ -5,6 +5,9 @@ gem 'sinatra'
 
 gem 'mongoid'
 
+gem 'pry'
+gem 'rake'
+
 group :development do
   gem 'shotgun'
 end
