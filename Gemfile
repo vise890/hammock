@@ -5,6 +5,7 @@ gem 'sinatra'
 
 gem 'mongoid'
 
+gem 'activesupport'
 gem 'pry'
 gem 'rake'
 

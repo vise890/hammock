@@ -41,6 +41,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   mongoid
   pry
   rake
