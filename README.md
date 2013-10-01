@@ -35,3 +35,4 @@ Bonus route:
 - Update
 - Search
 - nested resources (meh.)
+- auth
