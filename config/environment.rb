@@ -8,6 +8,4 @@ Bundler.require(:default)
 Dir['./api/models/*.rb'].each { |model| require model }
 
 # Require hammock
-require_relative 'lib/hammock'
-
-
+require_relative '../lib/hammock'

@@ -1,5 +1,5 @@
 # where everything is setup
-require_relative 'config/environment'
+require './config/environment'
 
 # don't run server when app is loaded
 set :run, false
