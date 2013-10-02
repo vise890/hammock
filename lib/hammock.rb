@@ -39,7 +39,7 @@ post '/:resource_name' do
   new_resource_instance = get_resource(params[:resource_name]).new(resource_args)
 
   if new_resource_instance.save
-    resource.to_json
+    new_resource_instance.to_json
   else
     halt 422 # unprocessable entity
   end
@@ -56,7 +56,7 @@ end
 # E.g. GET /coconuts/524a87a7e0f3fc1d2d000001
 # return cocounut with _id = 524a87a7e0f3fc1d2d000001
 get '/:resource_name/:id' do
-  find_resource.to_json
+  resource_instance.to_json
 end
 
 # UPDATE
