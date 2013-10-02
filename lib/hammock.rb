@@ -1,19 +1,25 @@
 helpers do
 
   def get_resource(name)
+    return @resource_class if @resource_class
     begin
-      name.singularize.titleize.constantize
+      @resource_class = name.singularize.titleize.constantize
     rescue
       halt 404 # not found
     end
   end
 
-  def find_resource
+  def resource_instance
+    return @resource_instance if @resource_instance
     begin
-      get_resource(params[:resource_name]).find(params[:id])
+      @resource_instance = get_resource(params[:resource_name]).find(params[:id])
     rescue
       halt 404 # not found
     end
+  end
+
+  def resource_args
+    params[params[:resource_name].singularize]
   end
 
 end
@@ -27,11 +33,9 @@ get '/' do
 end
 
 # CREATE
-# E.g. POST /coconuts, { coconut: {} }
+# E.g. POST /coconuts, { coconut: { name: 'Nutso', juicy: false, mass: 4.2, keywords: ['weird'] } }
 # create a coconut with the specified arguments
 post '/:resource_name' do
-
-  resource_args = params[params[:resource_name].singularize]
   new_resource_instance = get_resource(params[:resource_name]).new(resource_args)
 
   if new_resource_instance.save
@@ -39,7 +43,6 @@ post '/:resource_name' do
   else
     halt 422 # unprocessable entity
   end
-
 end
 
 # READ
@@ -56,9 +59,21 @@ get '/:resource_name/:id' do
   find_resource.to_json
 end
 
+# UPDATE
+# E.g. PUT /coconuts/524a87a7e0f3fc1d2d000001
+put '/:resource_name/:id' do
+  if resource_instance.update_attributes(resource_args)
+    resource_instance.to_json
+  else
+    halt 422 # unprocessable entity
+  end
+end
+
 # DESTROY
 # E.g. DELETE /coconuts/524a87a7e0f3fc1d2d000001
 # delete cocounut with _id = 524a87a7e0f3fc1d2d000001
 delete '/:resource_name/:id' do
-  find_resource.destroy.to_json
+  if resource_instance.destroy
+    resource_instance.to_json
+  end
 end
