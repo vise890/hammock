@@ -11,5 +11,8 @@ Mongoid.load!(mongoid_yml)
 # Require all the resources
 Dir['./resources/*.rb'].each { |model| require model }
 
+# require user routes
+require_relative '../app.rb'
+
 # Require hammock
 require_relative '../lib/hammock'
