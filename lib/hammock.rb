@@ -28,10 +28,6 @@ before do
   content_type :json
 end
 
-get '/' do
-  Coconut.first.to_json
-end
-
 # CREATE
 # E.g. POST /coconuts, { coconut: { name: 'Nutso', juicy: false, mass: 4.2, keywords: ['weird'] } }
 # create a coconut with the specified arguments
